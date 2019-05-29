@@ -16,9 +16,9 @@ int main(int argc, char* argv[])
     arg++;
   }
   float lower, upper;
-  printf("Enter a lower bound:\n");
+  printf("Set lower bound:\n");
   scanf("%f", &lower);
-  printf("Enter an upper bound:\n");
+  printf("Set upper bound:\n");
   scanf("%f", &upper);
   for (float radius = lower; radius <= upper; radius++)
     {
