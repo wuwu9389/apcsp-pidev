@@ -1,68 +1,56 @@
+
 #include <stdio.h>
 #include <string.h>
-//#include "student.h"
 
-struct Student 
-{
-  char firstName[256];
-  char lastName[256];
+struct Student {
+  char firstname[256];
+  char lastname[256];
   int age;
-  int studentID;
+  int studentid;
 };
 
-void printStudent(struct Student* student)
+
+
+
+void printBookByPtr(struct Student* book)
 {
-  printf("Name: %s %s\n", student->firstName, student->lastName);
-  printf("  Age: %d\n", student->age);
-  printf("  Student ID: %d\n", student->studentID);
+  printf("Student -\n");
+  printf("  Firstname:%s\n", book->firstname);
+  printf("  Lastname:%s\n", book->lastname);
+  printf("  Age:%d\n", book->age);
+  printf("  id:%d\n", book->studentid);
 }
 
 int main()
 {
-  char input[256];
-  struct Student students[256];
-  char ans;
-  int act = 0;
-  int count = 0;
-
-  while (act = 0)
-  {
-    printf("Dou want to enter a student(Y/N)?\n");
-    fgets(input, 256,stdin);
-    sscanf(input, "%s", &ans);
-    if (strcmp(&ans, "y") == 0)
-      {
-	act = 0;
-	char firstName[256];
-	char lastName[256];
 	int age;
-	int studentID;
+	int studentid;
+	char firstname[256];
+	char lastname[256];
+	char input[256];
+	struct Student book[256];
 	printf("Enter first name:\n");
 	fgets(input, 256, stdin);
-	sscanf(input, "%s", firstName);
+	sscanf(input, "%s", firstname);
 	printf("Enter last name:\n");
 	fgets(input, 256, stdin);
-	sscanf(input, "%s", lastName);
+	sscanf(input, "%s", lastname);
 	printf("Enter age:\n");
+	fgets(input, 4, stdin);
+	sscanf(input, "%d", &age);
+	printf("Enter student ID:\n");
 	fgets(input, 256, stdin);
-	sscanf(input, "%d", age);
-	printf("Enter student ID\n");
-	fgets(input, 256, stdin);
-	sscanf(input, "%d", studentID);
-	strcpy(students[count].firstName, firstName);
-	strcpy(students[count].lastName, lastName);
-	students[count].age = age;
-	students[count].studentID = studentID;
-	count++;
-    }
-  else
-    {
-	act = 1;
-	int view;
-	printf("Which student to view(number)?\n");
-	fgets(input, 256, stdin);
-	sscanf(input, "%d", view);
-	printStudent(&students[view]);
-    }
-  }
+	sscanf(input, "%d", &studentid);
+	
+  struct Student student1;
+  struct Student student2;
+
+ 
+  strcpy(student1.firstname, firstname);
+  strcpy(student1.lastname, lastname);
+  student1.age = age;
+  student1.studentid = studentid;
+
+ 
+  printBookByPtr(&student1);
 }
